@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>VulnWrap Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:20px}
+    .card{padding:12px;border-radius:8px;background:#f7f7f7;margin-bottom:12px}
+    pre{background:#222;color:#eee;padding:10px;border-radius:6px;overflow:auto}
+  </style>
+</head>
+<body>
+  <h1>VulnWrap Report</h1>
+  <div id="summary" class="card">Loading summary...</div>
+  <canvas id="scoreChart" width="800" height="250"></canvas>
+  <h2>Findings</h2>
+  <pre id="raw"></pre>
+
+  <script>
+    fetch('__FINDINGS_PATH__').then(r=>r.json()).then(data=>{
+      document.getElementById('raw').textContent = JSON.stringify(data,null,2);
+      const labels = data.map((d,i)=> d.service ? (d.service+":"+d.port) : ("item"+i));
+      const scores = data.map(d=> d.score || 0);
+      const ctx = document.getElementById('scoreChart').getContext('2d');
+      new Chart(ctx,{type:'bar',data:{labels,datasets:[{label:'Risk score',data:scores}]},options:{scales:{y:{beginAtZero:true,max:10}}}});
+      const high=data.filter(d=>d.score>=8).length, med=data.filter(d=>d.score>=5&&d.score<8).length, low=data.filter(d=>d.score<5).length;
+      document.getElementById('summary').innerHTML = `<strong>Total:</strong> ${data.length} — High:${high} Med:${med} Low:${low}`;
+    }).catch(e=>{
+      document.getElementById('summary').textContent = 'No findings.json present or failed to load.';
+      document.getElementById('raw').textContent = '';
+    });
+  </script>
+</body>
+</html>

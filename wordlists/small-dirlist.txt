@@ -1,0 +1,10 @@
+admin
+login
+wp-admin
+uploads
+images
+backup
+old
+test
+robots.txt
+config

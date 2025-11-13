@@ -1,0 +1,5 @@
+[
+  {"type":"service","service":"ssh","port":"22","score":6},
+  {"type":"service","service":"http","port":"80","score":6},
+  {"type":"web","detail":"niktoVuln","score":9}
+]
