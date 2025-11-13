@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VulnWrap – Automated Vulnerability Scanner Wrapper
 
 ## Overview
@@ -23,3 +24,6 @@ Quick usage (in WSL):
 1. chmod +x bin/vulnwrap.sh setup.sh lib/scanner_utils.sh
 2. ./setup.sh   # installs tools (requires sudo)
 3. make run TARGET=<IP>
+=======
+# Fall_Project_2025
+>>>>>>> 9bfa8b0ef2b1ecc8c08a8bb715155302c23cb36a
