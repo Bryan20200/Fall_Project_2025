@@ -124,6 +124,13 @@ score_findings(){
       log "Added nikto-derived finding"
     fi
   fi
+  if [[ -f "$outdir/gobuster.txt" ]]; then
+    if [[ -s "$outdir/gobuster.txt" ]]; then
+      jq '. += [{"type":"web","detail":"gobuster found directories","score":6}]' "$out" > "$out.tmp" && mv "$out.tmp" "$out"
+      log "Added gobuster-derived finding"
+    fi
+fi
+
 }
 
 # ----------------- Build HTML report from template -----------------
