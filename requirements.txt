@@ -1,0 +1,12 @@
+# System-level tools required for this project
+bash
+make
+nmap        # network/port scanner
+jq          # JSON processor
+python3     # used to serve the HTML report locally
+
+# Optional but recommended tools (script will still run without these)
+nikto       # web server vulnerability scanner
+gobuster    # directory brute forcing tool
+sslscan     # SSL/TLS scanner
+clamav      # provides 'clamscan' for example malware/file scanning
