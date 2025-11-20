@@ -102,7 +102,7 @@ README.md
 
 From the project root, run:
 
-make run TARGET=<IP>
+make run TARGET= IP
 
 
 This will create a timestamped folder under reports/ containing Nmap output, JSON files, and an HTML report (for example: reports/scan_YYYYMMDD_HHMMSS/).
