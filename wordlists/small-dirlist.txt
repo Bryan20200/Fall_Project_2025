@@ -8,3 +8,4 @@ old
 test
 robots.txt
 config
+hidden
