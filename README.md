@@ -1,7 +1,7 @@
 # Vulnerability Scanner Bash Wrapper (VulnWrap)
 
 > **Video Presentation:**  
-> *(Add your video link here at the top once it’s ready.)*
+> https://youtu.be/aUrXdODeVF0
 
 ## Project Purpose
 
